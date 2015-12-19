@@ -47,6 +47,55 @@
     </div>
 
 </div>
+<div class="form-group centered">
+  <label for="usr">Masukkan bilangan desimal:</label><br>
+  <input type = "text" class="form-group" name = "deci" id = "deci" size = "15" maxlength = "15" />
+<input type="button" value="Konversi" class="btn btn-primary"  onclick="dec2bin()" />
+</div>
+<div id = "result"></div>
+
+<script type = "text/javascript">
+
+function dec2bin() {
+var x = document.getElementById("deci").value;
+if ((/[^0-9]/g.test(x)) || x == "") {
+alert ("Maaf, masukkan bilangan desimal!");
+document.getElementById("deci").value = "";
+document.getElementById("deci").focus();
+return false;
+}
+
+if (x > 2147483648) {
+alert ("Maaf, bilangan anda berlebih!");
+document.getElementById("deci").value = "";
+document.getElementById("deci").focus();
+return false;
+}
+
+if (x < -2147483648) {
+alert ("Maaf, bilangan anda sangat kecil!");
+document.getElementById("deci").value = "";
+document.getElementById("deci").focus();
+return false;
+}
+
+x = parseInt(x);
+var bin = x.toString(2);
+var hex = x.toString(16).toUpperCase();
+var octal = x.toString(8);
+
+var figs = "Bilangan biner dari " + x + " adalah " + bin + "<br>";
+figs = figs + "Bilangan hexadesimal dari " + x + " adalah " + " is " + hex + "<br>";
+figs = figs + "Bilangan oktal dari " + x + " adalah " + octal + "";
+
+document.getElementById("result").innerHTML = figs;
+}
+</script>
+<div>
+<h2>My Address Book</h2>
+<input type="text" placeholder="Masukkan nama">
+<input type="text" placeholder="Masukkan nomor telepon">
+</div>
 </body>
 <footer class="footer navbar-fixed-bottom">
         <div class="container">
